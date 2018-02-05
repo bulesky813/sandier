@@ -180,6 +180,3 @@ casper.start().thenOpen(url, function(){
 });
 
 casper.run();
-
-
-
