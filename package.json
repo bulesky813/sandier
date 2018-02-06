@@ -1,10 +1,7 @@
 {
   "devDependencies": {
-    "crypto": "^1.0.1",
     "fast-download": "^0.3.6",
-    "line-reader": "^0.4.0",
     "mysql": "^2.15.0",
-    "url": "^0.11.0",
     "validator": "^9.4.0"
   }
 }

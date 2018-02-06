@@ -1,7 +1,7 @@
 var cookies = [
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1525573283.349854,
+        "expirationDate": 1525629425.192594,
         "hostOnly": false,
         "httpOnly": false,
         "name": "jforumAutoLogin",
@@ -15,7 +15,7 @@ var cookies = [
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1525573283.350831,
+        "expirationDate": 1525629425.192624,
         "hostOnly": false,
         "httpOnly": false,
         "name": "jforumUserHash",
@@ -29,7 +29,7 @@ var cookies = [
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1525573283.350502,
+        "expirationDate": 1525629425.192611,
         "hostOnly": false,
         "httpOnly": false,
         "name": "jforumUserId",
@@ -43,7 +43,7 @@ var cookies = [
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1525601671.741029,
+        "expirationDate": 1523637196.069373,
         "hostOnly": false,
         "httpOnly": false,
         "name": "language",
@@ -57,7 +57,7 @@ var cookies = [
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1548929703.148758,
+        "expirationDate": 1548985843.679581,
         "hostOnly": false,
         "httpOnly": false,
         "name": "membership",
@@ -71,7 +71,7 @@ var cookies = [
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1517912103.149939,
+        "expirationDate": 1517968243.679615,
         "hostOnly": false,
         "httpOnly": false,
         "name": "premium",
@@ -85,7 +85,7 @@ var cookies = [
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1517912103.150344,
+        "expirationDate": 1517968243.679639,
         "hostOnly": false,
         "httpOnly": false,
         "name": "referer",
@@ -94,12 +94,12 @@ var cookies = [
         "secure": false,
         "session": false,
         "storeId": "0",
-        "value": "http%3A%2F%2Fpage1.dfpan.com%2Ffs%2F0sx5ed2ab7de7%2F",
+        "value": "http%3A%2F%2Fpage1.dfpan.com%2Ffs%2Fdsxedd707cc72%2F%3Ferror%3DIncorrectUsernameOrPassword",
         "id": 7
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1517970083.351452,
+        "expirationDate": 1518026225.192642,
         "hostOnly": false,
         "httpOnly": false,
         "name": "ssoId",
@@ -108,12 +108,26 @@ var cookies = [
         "secure": false,
         "session": false,
         "storeId": "0",
-        "value": "1A0F113ABCDEBCB01C0E178E9FFFC357",
+        "value": "3491B823017C082C44AB88DC7CE11E77",
         "id": 8
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1517912103.150321,
+        "expirationDate": 1517911819.624315,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "tempTg",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "1",
+        "id": 9
+    },
+    {
+        "domain": ".dfpan.com",
+        "expirationDate": 1517968243.679627,
         "hostOnly": false,
         "httpOnly": false,
         "name": "validCodeUrl",
@@ -123,11 +137,11 @@ var cookies = [
         "session": false,
         "storeId": "0",
         "value": "\"dfpan.com:8880\"",
-        "id": 9
+        "id": 10
     },
     {
         "domain": ".dfpan.com",
-        "expirationDate": 1517829303,
+        "expirationDate": 1517885443,
         "hostOnly": false,
         "httpOnly": false,
         "name": "vid1",
@@ -136,8 +150,8 @@ var cookies = [
         "secure": false,
         "session": false,
         "storeId": "0",
-        "value": "7765d0014c591336",
-        "id": 10
+        "value": "e0660980b7ac5463",
+        "id": 11
     },
     {
         "domain": "page1.dfpan.com",
@@ -149,8 +163,8 @@ var cookies = [
         "secure": false,
         "session": true,
         "storeId": "0",
-        "value": "0A6FEF6C8200204A3EC5D0E4AEEA8991",
-        "id": 11
+        "value": "1F057B78D704C8CDC57ACAF4FCD1520F",
+        "id": 12
     }
 ];
 
@@ -173,7 +187,7 @@ var casper = require('casper').create({
 casper.start().thenOpen(url, function(){
     casper.wait(1000, function(){
         var objYf = this.evaluate(function() {
-            return {fastLink: $("a[onclick^='setCookie']:first-child").attr("href"), fileName: $("#file_show_filename").text()};
+            return {fastLink: $("a[onclick^='setCookie']:first-child").attr("href"), fileName: $("#file_show_filename").text().trim().toLowerCase()};
         });
         casper.echo(JSON.stringify(objYf));
     });

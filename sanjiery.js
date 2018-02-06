@@ -42,8 +42,13 @@ function Sanjiery() {
                             av.imgs.push($(this).attr("src"))
                         });
                         $("div[itemprop='articleBody']").eq(index).find("a").each(function() {
-                            if($(this).attr("href").indexOf(".com/fs/") > -1 && $(this).text().indexOf(".com/fs/") > -1) {
-                                av.links.push($(this).attr("href"));
+                            if($(this).text().indexOf(".com/fs/") > -1) {
+                                if($(this).attr("href").indexOf(".com/fs/") > -1)  {
+                                    av.links.push($(this).attr("href"));
+                                }
+                                else if($(this).attr("_href").indexOf(".com/fs/") > -1) {
+                                    av.links.push($(this).attr("_href"));
+                                }
                             }
                         });
                         $("span.post-labels").eq(index).find("a").each(function(){

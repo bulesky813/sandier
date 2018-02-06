@@ -4,14 +4,14 @@ var fs         = require('fs');
 
 
 var connection = mysql.createConnection({
-    host     : '10.211.55.4',
+    host     : '192.168.2.8',
     user     : 'root',
     password : '123456',
     database : 'sanjiery'
 });
 connection.connect();
 
-var casperjs = child.spawn('casperjs', [
+var casperjs = child.spawn('C:\\Users\\bulesky813\\AppData\\Roaming\\npm\\casperjs.cmd', [
         'sanjiery.js', 
         'http://sanjiery.blogspot.com/search/label/%E7%BD%91%E7%BB%9C%E7%BA%A2%E4%BA%BA'
     ]
@@ -33,7 +33,20 @@ casperjs.stdout.on('data', function (data) {
                 function (err, results, fields) {
                     if (err) {
                         console.log(err.message);
+                        return;
                     }
+                    var aid = results.insertId;
+                    arc.links.forEach(function (link) {
+                        connection.query("INSERT INTO av_link SET ?", {
+                            "aid": aid,
+                            "link": link
+                        }, function(err, results, fields){
+                            if (err) {
+                                console.log(err.message);
+                                return;
+                            }
+                        });
+                    });
                 }
             );
         })
